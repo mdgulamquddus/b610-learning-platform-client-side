@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContex";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signinUser } = useContext(AuthContext);
+  const { signinUser, signinWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,9 +16,16 @@ const Login = () => {
     const password = form.password.value;
     signinUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate("/");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleSigninGoogle = () => {
+    signinWithGoogle()
+      .then((resutl) => {
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -61,6 +71,17 @@ const Login = () => {
           </NavLink>
         </div>
       </form>
+      <hr className="my-7" />
+      <h2 className="text-xl text-center font-semibold mb-3">
+        Sign In with Google and Github
+      </h2>
+      <div className="flex gap-5 items-center justify-center">
+        <FaGoogle
+          onClick={handleSigninGoogle}
+          className="text-4xl cursor-pointer"
+        />
+        <FaGithub className="text-4xl cursor-pointer" />
+      </div>
     </div>
   );
 };

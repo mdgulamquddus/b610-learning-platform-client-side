@@ -1,11 +1,14 @@
+import { Spinner } from "flowbite-react";
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/UserContex";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-
+  if (loading) {
+    return <Spinner aria-label="Extra large spinner example" size="xl" />;
+  }
   if (user && user.uid) {
     return children;
   }
