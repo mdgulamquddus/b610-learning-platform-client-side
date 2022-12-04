@@ -1,7 +1,7 @@
-import { Badge, Rating } from "flowbite-react";
+import { Badge, Button, Rating } from "flowbite-react";
 import React, { createRef } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import Pdf from "react-to-pdf";
 
@@ -9,6 +9,7 @@ const ref = createRef();
 const CourseDetails = () => {
   const course = useLoaderData();
   const {
+    id,
     name,
     title,
     creator,
@@ -65,6 +66,9 @@ const CourseDetails = () => {
           ))}
         </div>
       </div>
+      <Link to={`/checkout/${id}`} className="my-4 block">
+        <Button color="purple">Get Premium Access</Button>
+      </Link>
     </div>
   );
 };
