@@ -1,5 +1,6 @@
 import { Badge, Rating } from "flowbite-react";
 import React from "react";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
@@ -17,8 +18,9 @@ const CourseDetails = () => {
   console.log(course);
   return (
     <div className="w-3/4 mx-auto my-5 p-4 border border-gray-200 rounded-md">
-      <div>
+      <div className="flex items-center">
         <h1 className="text-4xl font-extrabold mb-2">{name}</h1>
+        <FaCloudDownloadAlt className="text-4xl text-red-500 cursor-pointer" />
       </div>
       <img className="w-full mb-2" src={imgUrl} alt="" />
       <p className="my-5">{title}</p>
