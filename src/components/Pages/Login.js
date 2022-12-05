@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContex";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { signinUser, signinWithGoogle, signinWithGithub } =
     useContext(AuthContext);
@@ -18,18 +20,21 @@ const Login = () => {
     signinUser(email, password)
       .then((result) => {
         navigate(from, { replace: true });
+        toast.success("Loggedin Successfully");
       })
       .catch((error) => {
-        console.log(error);
+        toast.warning("Your Credentials Not Match");
+        setError("Your Credentials Not Match");
       });
   };
   const handleSigninGoogle = () => {
     signinWithGoogle()
       .then((resutl) => {
         navigate(from, { replace: true });
+        toast.success("Loggedin Successfully");
       })
       .catch((error) => {
-        console.log(error);
+        toast.warning("Your Credentials Not Match");
       });
   };
 
@@ -37,9 +42,10 @@ const Login = () => {
     signinWithGithub()
       .then((resutl) => {
         navigate(from, { replace: true });
+        toast.success("Loggedin Successfully");
       })
       .catch((error) => {
-        console.log(error);
+        toast.warning("Your Credentials Not Match");
       });
   };
   return (
@@ -66,15 +72,14 @@ const Login = () => {
             required
           />
         </div>
+        {error ? <p className="my-3 font-bold text-red-400">{error}</p> : null}
         <button
           className="mt-2 py-2 px-5 bg-red-400 rounded-lg text-white font-bold"
           type="submit"
         >
           Login
         </button>
-        <div className="mt-3 text-green-600 font-bold">
-          {/* {success ? <p>{success}</p> : null} */}
-        </div>
+
         <div className="my-3">
           <span className="mr-1 ">Don't Have An Account?</span>
           <NavLink className="text-red-400 font-bold" to="/register">

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../context/UserContex";
 
 const Register = () => {
@@ -17,7 +18,7 @@ const Register = () => {
       .then((result) => {
         updateUser(name, photo)
           .then(() => {
-            alert("User Created Successfully");
+            toast.success("User Created Successfully");
           })
           .catch((error) => {
             console.log(error);
