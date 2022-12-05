@@ -4,7 +4,6 @@ import SingleBlog from "./SingleBlog";
 
 const Blog = () => {
   const blogs = useLoaderData();
-  console.log(blogs);
   return (
     <div className="container mx-5  md:w-2/4 md:mx-auto my-10 grid gap-10">
       {blogs.map((blog) => (

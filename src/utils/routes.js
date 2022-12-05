@@ -28,18 +28,22 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () =>
+          fetch("https://wedemy-server-mdgulamquddus.vercel.app/courses"),
       },
       {
         path: "/course/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://wedemy-server-mdgulamquddus.vercel.app/course/${params.id}`
+          ),
       },
       {
         path: "/blog",
         element: <Blog></Blog>,
-        loader: () => fetch("http://localhost:5000/blogs"),
+        loader: () =>
+          fetch("https://wedemy-server-mdgulamquddus.vercel.app/blogs"),
       },
       {
         path: "/faq",
@@ -61,7 +65,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://wedemy-server-mdgulamquddus.vercel.app/course/${params.id}`
+          ),
       },
     ],
   },

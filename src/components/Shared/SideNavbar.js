@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const SideNavbar = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://wedemy-server-mdgulamquddus.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
   return (
     <div>
-      <h1>All Courses</h1>
+      <h1 className="text-xl font-bold">All Courses</h1>
       {items.map((item) => (
         <Link
           to={`/course/${item.id}`}
