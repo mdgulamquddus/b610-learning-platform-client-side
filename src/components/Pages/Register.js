@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/UserContex";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ const Register = () => {
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setError("User Already Exists");
       });
   };
   return (
@@ -74,15 +75,14 @@ const Register = () => {
               required
             />
           </div>
+          <div>{error ? <p className="my-3 text-red-700">{error}</p> : ""}</div>
           <button
             className="mt-2 py-2 px-5 bg-red-400 rounded-lg text-white font-bold"
             type="submit"
           >
             Register
           </button>
-          <div>
-            {/* {userExit ? <p className="my-3 text-red-700">{userExit}</p> : ""} */}
-          </div>
+
           <div className="my-3">
             <span className="mr-1 ">You Have Already Account</span>
             <NavLink className="text-red-400 font-bold" to="/login">

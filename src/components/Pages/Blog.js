@@ -1,9 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import SingleBlog from "./SingleBlog";
 
 const Blog = () => {
+  const blogs = useLoaderData();
+  console.log(blogs);
   return (
-    <div>
-      <h1>This Blog Component</h1>
+    <div className="container mx-5  md:w-2/4 md:mx-auto my-10 grid gap-10">
+      {blogs.map((blog) => (
+        <SingleBlog key={blog.id} blog={blog} />
+      ))}
     </div>
   );
 };

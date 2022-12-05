@@ -36,11 +36,11 @@ const CourseDetails = () => {
         <h1 className="text-4xl font-extrabold mb-2">{name}</h1>
         <img className="w-full mb-2" src={imgUrl} alt="" />
         <p className="my-5">{title}</p>
-        <div className="flex items-center gap-2">
+        <div className="flex lg:flex-row flex-col items-center gap-2">
           <span className="inline-block">
             <Badge color="warning">{badge}</Badge>
           </span>
-          <span className="inline-block">
+          <span className="inline-block my-2">
             <Rating>
               <Rating.Star />
               <Rating.Star />

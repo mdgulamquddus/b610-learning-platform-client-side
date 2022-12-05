@@ -8,12 +8,12 @@ const Courses = () => {
 
   return (
     <>
-      <div className="grid grid-cols-5 gap-5 mt-5">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-5">
+        <div className="lg:col-span-1 hidden lg:block">
           <SideNavbar></SideNavbar>
         </div>
-        <div className="col-span-4">
-          <div className="grid grid-cols-3 gap-3 mb-10">
+        <div className="lg:col-span-4">
+          <div className="grid lg:grid-cols-3 gap-3 mb-10">
             {courses.map((course) => (
               <SingleCourse key={course.id} course={course} />
             ))}

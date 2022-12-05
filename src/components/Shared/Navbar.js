@@ -39,7 +39,16 @@ const Nabvar = () => {
                       user.displayName ? user.displayName : "Name Not Found"
                     }
                   >
-                    <Avatar img={user.photoURL} rounded={true} />
+                    <Avatar
+                      img={
+                        user.photoURL ? (
+                          user.photoURL
+                        ) : (
+                          <Avatar rounded={true} />
+                        )
+                      }
+                      rounded={true}
+                    />
                   </Tooltip>
                 ) : (
                   <Tooltip
