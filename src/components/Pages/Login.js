@@ -5,7 +5,8 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signinUser, signinWithGoogle } = useContext(AuthContext);
+  const { signinUser, signinWithGoogle, signinWithGithub } =
+    useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const handleSubmit = (e) => {
@@ -24,6 +25,16 @@ const Login = () => {
   };
   const handleSigninGoogle = () => {
     signinWithGoogle()
+      .then((resutl) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSigninGithub = () => {
+    signinWithGithub()
       .then((resutl) => {
         navigate(from, { replace: true });
       })
@@ -80,7 +91,10 @@ const Login = () => {
           onClick={handleSigninGoogle}
           className="text-4xl cursor-pointer"
         />
-        <FaGithub className="text-4xl cursor-pointer" />
+        <FaGithub
+          onClick={handleSigninGithub}
+          className="text-4xl cursor-pointer"
+        />
       </div>
     </div>
   );

@@ -39,10 +39,7 @@ const Nabvar = () => {
                       user.displayName ? user.displayName : "Name Not Found"
                     }
                   >
-                    <Avatar
-                      img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      rounded={true}
-                    />
+                    <Avatar img={user.photoURL} rounded={true} />
                   </Tooltip>
                 ) : (
                   <Tooltip

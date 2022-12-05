@@ -7,7 +7,11 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
   if (loading) {
-    return <Spinner aria-label="Extra large spinner example" size="xl" />;
+    return (
+      <div className="flex h-screen justify-center items-center">
+        <Spinner aria-label="Extra large spinner example" size="xl" />
+      </div>
+    );
   }
   if (user && user.uid) {
     return children;
