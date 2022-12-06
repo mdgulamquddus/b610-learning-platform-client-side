@@ -13,7 +13,7 @@ const Courses = () => {
           <SideNavbar></SideNavbar>
         </div>
         <div className="lg:col-span-4">
-          <div className="grid lg:grid-cols-3 gap-3 mb-10">
+          <div className="grid ml-10 lg:ml-0 lg:grid-cols-3 gap-3 mb-10">
             {courses.map((course) => (
               <SingleCourse key={course.id} course={course} />
             ))}

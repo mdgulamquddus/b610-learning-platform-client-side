@@ -14,9 +14,14 @@ const Nabvar = () => {
   return (
     <div>
       <Navbar fluid={true} rounded={true}>
-        <Link to="/">
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Wedemy
+        <Link className="flex items-center" to="/">
+          <img
+            className="w-8 mr-2 inline-block"
+            src="https://i.ibb.co/8bNjrB0/662fe798f9ff4808b0651ac2a5bc94be.png"
+            alt=""
+          />
+          <span className="self-center whitespace-nowrap text-xl  font-extrabold ">
+            <span className="text-2xl text-purple-600">W</span>edemy
           </span>
         </Link>
 
