@@ -2,7 +2,13 @@
 
 Wedemy Live Site Link  https://wedemy-26005.web.app
 
-## LIST OF TECHNOLOGIE USED ON THIS WEB APP
+## Website Features
+
+- Navbar all menu items
+- Course Section have all courses
+- Blog Section have question and answer
+
+## List OF Technologies Used on This Web App
 
 1. Tailwind Css
 2. Flowbite-react
